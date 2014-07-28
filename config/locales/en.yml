@@ -4,3 +4,5 @@ en:
     errors:
       messages:
         prefix_invalid: "must start with \"%{prefix}\""
+  separator: Separator
+  separator_desc: "The separator between username and the given project name. Defaults to \'%{default_separator}\'"

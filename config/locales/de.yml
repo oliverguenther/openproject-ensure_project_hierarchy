@@ -4,3 +4,5 @@ de:
     errors:
       messages:
         prefix_invalid: "muss den Präfix \"%{prefix}\" haben"
+  separator: Trennzeichen
+  separator_desc: "Das Trennzeichen zwischen Nutzername und Projektname. Standard: \'%{default_separator}\'"

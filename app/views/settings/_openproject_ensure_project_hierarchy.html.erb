@@ -1,0 +1,10 @@
+<h3><%= l(:separator) %></h3>
+
+<p>
+  <label><%= l(:separator) %></label>
+  <%= text_field_tag("settings[separator]",
+    Setting.plugin_openproject_ensure_project_hierarchy[:separator], :size => 10)
+  %>
+  <br />
+  <em><%= t(:separator_desc, default_separator: Setting.plugin_openproject_ensure_project_hierarchy[:separator]) %></em>
+</p>
