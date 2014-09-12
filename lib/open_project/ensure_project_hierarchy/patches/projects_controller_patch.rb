@@ -9,6 +9,7 @@ module OpenProject::EnsureProjectHierarchy
           include InstanceMethods
 
           alias_method_chain :new, :default_identifier_for_new_subprojects
+          alias_method_chain :validate_parent_id, :identifier_hierarchy
         end
       end
 
@@ -28,6 +29,23 @@ module OpenProject::EnsureProjectHierarchy
             Rails.logger.info("[EnsureProjectHierarchy] Overriding project identifier to #{@project.identifier}")
           end
         end
+
+        def validate_parent_id_with_identifier_hierarchy
+          return true if User.current.admin?
+          return false unless validate_parent_id_without_identifier_hierarchy
+
+          parent_id = params[:project] && params[:project][:parent_id]
+          seperator = Setting.plugin_openproject_ensure_project_hierarchy[:separator]
+          if parent_id || @project.new_record?
+            parent = parent_id.blank? ? nil : Project.find_by_id(parent_id.to_i)
+            if parent && !@project.identifier.start_with?([parent.identifier, seperator].join)
+              @project.errors.add :identifier, :prefix_invalid, :prefix => "#{parent.identifier}#{seperator}"
+              return false
+            end
+          end
+          true
+        end
+
       end
     end
   end

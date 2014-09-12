@@ -17,8 +17,8 @@ project's identifier.
 
 Create a file `Gemfile.plugins` in your OpenProject installation with the following content:
 
-	gem "openproject-plugins", :git => "https://github.com/opf/openproject-plugins.git", :branch => "stable" 
-	gem "openproject-ensure_project_hierarchy", :git => "https://github.com/oliverguenther/openproject-ensure_project_hierarchy.git", :branch => "stable"
+	gem "openproject-plugins", :git => "https://github.com/opf/openproject-plugins.git", :branch => "stable"
+	gem "openproject-ensure_project_hierarchy", :git => "https://github.com/oliverguenther/openproject-ensure_project_hierarchy.git"
 
 
 Please see the [OpenProject plugin overview](https://www.openproject.org/projects/openproject/wiki/OpenProject_Plug-Ins)

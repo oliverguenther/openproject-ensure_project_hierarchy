@@ -18,7 +18,7 @@ module OpenProject::EnsureProjectHierarchy
       :requires_openproject => '>= 3.0.0',
       :settings => settings
 
-    patches [ :Project, :ProjectsController ]
+    patches [ :ProjectsController ]
 
   end
 end
